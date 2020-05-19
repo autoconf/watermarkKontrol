@@ -185,10 +185,240 @@ namespace watermarkKontrol
                 else if (ilk6piksel[2] == '0' && ilk6piksel[3] == '0')
                 {
                     //tek piksel
+                    int tekheight = 0, tekwidth = 0;
+                    if (gorsel.Height % 2 == 0)
+                    {
+                        tekheight = gorsel.Height - 1;
+                    }
+                    if (gorsel.Width % 2 == 0)
+                    {
+                        tekwidth = gorsel.Width - 1;
+                    }
+                    if (ilk6piksel[4] == '0' && ilk6piksel[5] == '0')
+                    {
+                        //tüm palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 1; y < tekheight; y++) //gorsel.Height
+                        {
+                            for (int x = 1; x < tekwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk - 1)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryA = string.Empty;
+                                    string binaryR = string.Empty;
+                                    string binaryG = string.Empty;
+                                    string binaryB = string.Empty;
+                                    binaryA = Convert.ToString((int)piksel.A, 2);
+                                    binaryR = Convert.ToString((int)piksel.R, 2);
+                                    binaryG = Convert.ToString((int)piksel.G, 2);
+                                    binaryB = Convert.ToString((int)piksel.B, 2);
+                                    metin += binaryR.Last().ToString() + binaryG.Last().ToString() + binaryB.Last().ToString();
+                                    i += 3;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '0' && ilk6piksel[5] == '1')
+                    {
+                        //kirmizi palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 1; y < tekheight; y++) //gorsel.Height
+                        {
+                            for (int x = 1; x < tekwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryR = string.Empty;
+                                    binaryR = Convert.ToString((int)piksel.R, 2);
+                                    metin += binaryR.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '1' && ilk6piksel[5] == '0')
+                    {
+                        //yesil palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 1; y < tekheight; y++) //gorsel.Height
+                        {
+                            for (int x = 1; x < tekwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryG = string.Empty;
+                                    binaryG = Convert.ToString((int)piksel.G, 2);
+                                    metin += binaryG.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '1' && ilk6piksel[5] == '1')
+                    {
+                        //mavi palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 1; y < tekheight; y++) //gorsel.Height
+                        {
+                            for (int x = 1; x < tekwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryB = string.Empty;
+                                    binaryB = Convert.ToString((int)piksel.B, 2);
+                                    metin += binaryB.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
                 }
                 else if (ilk6piksel[2] == '0' && ilk6piksel[3] == '1')
                 {
                     //çift piksel
+                    int ciftheight = 0, ciftwidth = 0;
+                    if (gorsel.Height % 2 == 0)
+                    {
+                        ciftheight = gorsel.Height - 1;
+                    }
+                    if (gorsel.Width % 2 == 0)
+                    {
+                        ciftwidth = gorsel.Width - 1;
+                    }
+                    if (ilk6piksel[4] == '0' && ilk6piksel[5] == '0')
+                    {
+                        //tüm palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 0; y < ciftheight; y++) //gorsel.Height
+                        {
+                            for (int x = 0; x < ciftwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk - 1)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryA = string.Empty;
+                                    string binaryR = string.Empty;
+                                    string binaryG = string.Empty;
+                                    string binaryB = string.Empty;
+                                    binaryA = Convert.ToString((int)piksel.A, 2);
+                                    binaryR = Convert.ToString((int)piksel.R, 2);
+                                    binaryG = Convert.ToString((int)piksel.G, 2);
+                                    binaryB = Convert.ToString((int)piksel.B, 2);
+                                    metin += binaryR.Last().ToString() + binaryG.Last().ToString() + binaryB.Last().ToString();
+                                    i += 3;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '0' && ilk6piksel[5] == '1')
+                    {
+                        //kirmizi palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 0; y < ciftheight; y++) //gorsel.Height
+                        {
+                            for (int x = 0; x < ciftwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryR = string.Empty;
+                                    binaryR = Convert.ToString((int)piksel.R, 2);
+                                    metin += binaryR.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '1' && ilk6piksel[5] == '0')
+                    {
+                        //yesil palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 0; y < ciftheight; y++) //gorsel.Height
+                        {
+                            for (int x = 0; x < ciftwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryG = string.Empty;
+                                    binaryG = Convert.ToString((int)piksel.G, 2);
+                                    metin += binaryG.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
+                    else if (ilk6piksel[4] == '1' && ilk6piksel[5] == '1')
+                    {
+                        //mavi palet
+                        int i = 0;
+                        string alpha = string.Empty;
+                        for (int y = 0; y < ciftheight; y++) //gorsel.Height
+                        {
+                            for (int x = 0; x < ciftwidth; x++) //gorsel.Width
+                            {
+                                if (y == 0 && x == 0)
+                                {
+                                    x = x + 7;
+                                }
+                                if (i < uzunluk)
+                                {
+                                    Color piksel = gorsel.GetPixel(x, y);
+                                    string binaryB = string.Empty;
+                                    binaryB = Convert.ToString((int)piksel.B, 2);
+                                    metin += binaryB.Last().ToString();
+                                    i += 1;
+                                }
+                            }
+                        }
+                        metniMetinKutusunaYaz(metin);
+                    }
                 }
             }
             else if (ilk6piksel[0] == '1' && ilk6piksel[1] == '0')

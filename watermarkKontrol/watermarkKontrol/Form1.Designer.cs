@@ -113,6 +113,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form1";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Su İzi (watermark) Kontrol";
             ((System.ComponentModel.ISupportInitialize)(this.metniAyirButon)).EndInit();
