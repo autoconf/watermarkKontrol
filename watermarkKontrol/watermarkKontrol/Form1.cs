@@ -62,7 +62,7 @@ namespace watermarkKontrol
                 Color piksel = gorsel.GetPixel(x, 0);
                 ilk6piksel += Convert.ToString((int)piksel.B, 2).Last();
             }
-
+            MessageBox.Show(ilk6piksel);
 
             ///Koda bağlı binary metin okuma işlemleri 
             ///
@@ -88,7 +88,7 @@ namespace watermarkKontrol
                                 {
                                     x = x + 7;
                                 }
-                                if (i < uzunluk - 1)
+                                if (i < uzunluk)
                                 {
                                     Color piksel = gorsel.GetPixel(x, y);
                                     string binaryA = string.Empty;
@@ -207,7 +207,7 @@ namespace watermarkKontrol
                                 {
                                     x = x + 7;
                                 }
-                                if (i < uzunluk - 1)
+                                if (i < uzunluk)
                                 {
                                     Color piksel = gorsel.GetPixel(x, y);
                                     string binaryA = string.Empty;
@@ -438,7 +438,7 @@ namespace watermarkKontrol
                 {
                     metin = metin.Substring(0, uzunluk);
                 }
-                //MessageBox.Show(metin + "\n" + metin.Length);
+                MessageBox.Show(metin + "\n" + metin.Length);
                 int fark = metin.Length - uzunluk;
                 //metne çevir
                 List<Byte> byteList = new List<Byte>();
